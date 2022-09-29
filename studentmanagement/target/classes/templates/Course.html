@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+ <style>
+ body { background-image: url("https://img.freepik.com/free-vector/watercolor-blue-background_23-2149333764.jpg");
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ 
+ }
+ 
+ </style>
+</head>
+<body>
+
+<div align ="center">
+<h2 >Enter Course Detail</h2>
+<tr>
+<div align = "Center" >
+<h3><a  th:href="@{'/course/addcourse'}">Add Course</a>   
+</div>
+</tr>
+ 
+<div class="col-sm-8" align = "center">
+        <div class="panel-body" align = "center" >
+                
+                
+   <table class="table">
+<thead class="thead-dark">
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Duration</th>
+             <th>Edit</th>
+             <th>Delete</th>
+   </tr>
+  </thead>
+  <tbody>
+      <tr  th:each="course : ${listcourse}">
+<td th:text="${course.id}">Course ID</td>
+<td th:text="${course.coursename}">Course Name</td>
+<td th:text="${course.duration}">Duration</td>
+ 
+<td>
+<a th:href="@{'/course/edit/' + ${course.id}}">Edit</a>
+</td>     
+<td>
+<a th:href="@{'/course/delete/' + ${course.id}}">Delete</a>
+</td>     
+</tr>
+  </tbody>
+  </table>                
+</div>
+</div>
+ 
+</tr>
+ 
+</tbody>
+</table>
+<div>
+
+
+</body>
+</html>
